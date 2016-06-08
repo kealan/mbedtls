@@ -133,14 +133,16 @@ static void ssl_write_milagro_cs_ext( mbedtls_ssl_context *ssl,
     /*
      * Check before if the ciphersuite MILAGRO_CS is in the list
      */
+    int got_milagro_ciphersuite;
+    int i;
     unsigned char *p=NULL;
     const unsigned char *end = NULL;
     const int *ciphersuites = ssl->conf->ciphersuite_list[ssl->minor_ver];
     const mbedtls_ssl_ciphersuite_t *ciphersuite_info;
     *olen = 0;
-    int got_milagro_ciphersuite = 0;
+    got_milagro_ciphersuite = 0;
     ciphersuite_info = NULL;
-    for( int i = 0; ciphersuites[i] != 0; i++ )
+    for(i = 0; ciphersuites[i] != 0; i++ )
     {
         ciphersuite_info = mbedtls_ssl_ciphersuite_from_id(ciphersuites[i]);
         if (ciphersuite_info->key_exchange == MBEDTLS_KEY_EXCHANGE_MILAGRO_CS )

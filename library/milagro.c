@@ -81,12 +81,13 @@ void mbedtls_milagro_cs_init( mbedtls_milagro_cs_context * milagro_cs)
 
 int mbedtls_milagro_cs_setup_RNG( mbedtls_milagro_cs_context *milagro_cs, mbedtls_entropy_context *entropy)
 {
+    int i;
     unsigned char seed[20] = {0};
     char raw[100] = {0};
     
     octet RAW={0,sizeof(raw),raw};
     
-    for (int i = 0; i<5; i++) {
+    for (i = 0; i<5; i++) {
         if (mbedtls_entropy_func(entropy, seed, 20) != 0)
         {
             return(MBEDTLS_ERR_ENTROPY_SOURCE_FAILED);
@@ -589,12 +590,13 @@ void mbedtls_milagro_p2p_set_key(int client_or_server, mbedtls_milagro_p2p_conte
 
 int mbedtls_milagro_p2p_setup_RNG( mbedtls_milagro_p2p_context *milagro_p2p, mbedtls_entropy_context *entropy)
 {
+    int i;
     unsigned char seed[20] = {0};
     char raw[100] = {0};
     
     octet RAW={0,sizeof(raw),raw};
     
-    for (int i = 0; i<5; i++) {
+    for (i = 0; i<5; i++) {
         if (mbedtls_entropy_func(entropy, seed, 20) != 0)
         {
             return(MBEDTLS_ERR_ENTROPY_SOURCE_FAILED);

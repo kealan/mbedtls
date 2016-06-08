@@ -84,7 +84,7 @@ if(ENABLE_MILAGRO_SUPPORT)
     message(STATUS "AMCL_INSTALL_DIR ${AMCL_INSTALL_DIR}")
     include_directories("${AMCL_INSTALL_DIR}/include/" )
     link_directories("${AMCL_INSTALL_DIR}/lib/" )
-    set(CMAKE_C_FLAGS "-D_POSIX_SOURCE -std=c99 ${CMAKE_C_FLAGS}")
+    # set(CMAKE_C_FLAGS "-D_POSIX_SOURCE -std=c99 ${CMAKE_C_FLAGS}")
 endif(ENABLE_MILAGRO_SUPPORT)
 
 add_subdirectory(library)

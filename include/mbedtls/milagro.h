@@ -41,6 +41,7 @@
 #define mbedtls_time_t  time_t
 #endif
 
+#define C99
 #include "mpin.h"
 #include "utils.h"
 #include "wcc.h"
